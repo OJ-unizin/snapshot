@@ -98,7 +98,7 @@ class TestCase1(unittest.TestCase):
         webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Twitter'))
 
 
-        time.sleep(6)
+        time.sleep(5)
 
     def tearDown(self):
         driver.quit()

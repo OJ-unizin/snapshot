@@ -38,22 +38,76 @@ class TestCase2(unittest.TestCase):
         password_Element.send_keys(Keys.RETURN)
         print driver.title
 
+        #Courses link
+        Courseslink_Element = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//a[@href='/courses']"))
+        #Courseslink_Element = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//a[@id='global_nav_courses_link']"))
+        Courseslink_Element.click()
+        time.sleep(2)
 
-        webElement = WebDriverWait(driver, 20).until(lambda driver:driver.find_element_by_xpath("//a[contains(.,'Snapshot')]"))
-        webElement.click()
+        #All Courses link
+        #AllCourseslink_Element = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//span[@class='name']"))
+        #AllCourseslink_Element.click()
 
-    #def test_1(self):
-        #iframe = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id("pseudonym_session_password"))
-        #driver.switch_to_frame('instructure_ajax_error_result')
+        #[CMP Production] Template Course link
+        cmpProductionCourse_Element = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//span[@class='name']"))
+        cmpProductionCourse_Element.click()
+        time.sleep(2)
+
+        #Snapshot menu link
+        webElement_Snapshot = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//a[contains(.,'Snapshot')]"))
+        webElement_Snapshot.click()
+        time.sleep(2)
+
+
         print driver.title
 
-        time.sleep(20)
+####    #Show / Hide Course menu
+        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//button[@aria-hidden='true']"))
+        webElement.click()
+        time.sleep(5)
+        webElement.click()
+        time.sleep(5)
 
-        ##driver.switch_to_default_content()
+        #Validate EAP link
+        #webElement_EAP102 = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//span[contains(.,'EAP 102')]"))
+        webElement_EAP102 = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_link_text('EAP 102'))
+        webElement_EAP102.click()
+        time.sleep(5)
 
-        now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        webElementss = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//a[contains(.,'Snapshot')]"))
+        webElementss.click()
+        time.sleep(5)
+
+        #Validate "[CMP Production] Template Course exist"
+        webElement_2 = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//span[contains(.,'[CMP Production] Template Course')]"))
+        #webElement_2 = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('[CMP Production] Template Course'))
+        webElement_2.click()
+        time.sleep(5)
+
+        webElement1 = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//a[contains(.,'Snapshot')]"))
+        webElement1.click()
+        time.sleep(5)
+
+        driver.switch_to_frame(1)
+        #driver.switch_to_frame("iframe")
+        print driver.title
+        webElement_SectionOutcome = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//a[contains(.,'Section Outcomes')]"))
+        webElement_SectionOutcomesLink = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//a[contains(.,'Section Outcomes')]"))
+        webElement_SectionOutcomesLink.click()
+
+        webElement_StudentMonitoring = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//a[contains(.,'Student Monitoring')]"))
+        webElement_StudentMonitoring.click()
+        time.sleep(5)
+        webElement_SectionOutcomesLink.click()
+
+        #driver.switch_to.default_content()
+        time.sleep(5)
+        #cmpProductionCourse1_Element = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//span[@class='name']"))
+
+
+##        now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
         #browser.get_screenshot_as_file('screenshot-%s.png' % now)
-        driver.save_screenshot('screenshot-%s.jpg' % now)
+##        driver.save_screenshot('screenshot-%s.jpg' % now)
 
     def tearDown(self):
         driver.quit()
