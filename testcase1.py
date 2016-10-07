@@ -60,42 +60,42 @@ class TestCase1(unittest.TestCase):
 ##Find and Validate Button Elements
     def test_FindAnElementButton_LogIn(self):
         #Validate that the "Log In" button is present.
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//button[contains(.,'Log In')]"))
+        webElement_LogInbtn = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//button[contains(.,'Log In')]"))
         #print webElement.text
 
 ##Find and Validate Link Elements
 
     def test_FindAnElementLink_Browsecourses(self):
         #Find Element by link text "Browse courses"
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Browse courses'))
+        webElement_BrowseCourse = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Browse courses'))
 
     def test_FindAnElementLink_ForgotPassword(self):
         #Find Element by link text "Forgot Password?"
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Forgot Password?'))
+        webElement_ForgotPassword = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Forgot Password?'))
 
     def test_FindAnElementLink_UserResearch(self):
         #Find Element by link text "User Research"
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('User Research'))
+        webElement_UserResearch = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('User Research'))
 
     def test_FindAnElementLink_Help(self):
         #Find Element by link text "Help"
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Help'))
+        webElement_Help = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Help'))
 
     def test_FindAnElementLink_Privacypolicy(self):
         #Find Element by link text "Privacy policy"
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Privacy policy'))
+        webElement_PrivacyPolicy = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Privacy policy'))
 
     def test_FindAnElementLink_Termsofservice(self):
-        #Find Element by link text "Terms of service"
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Terms of service'))
+        ##Find Element by link text "Terms of service"
+        webElement_TermsofService = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Terms of service'))
 
     def test_FindAnElementLink_Facebook(self):
         #Find Element by link text "Facebook"
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Facebook'))
+        webElement_Facebook = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Facebook'))
 
     def test_FindAnElementLink_Twitter(self):
         #Find Element by link text "Twitter"
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Twitter'))
+        webElement_Twitter = WebDriverWait(driver, 10).until(lambda driver: driver.find_elements_by_link_text('Twitter'))
 
 
         time.sleep(5)
