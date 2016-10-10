@@ -59,13 +59,15 @@ class TestCase2(unittest.TestCase):
         webElement_Snapshot = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//a[contains(.,'Snapshot')]"))
         print webElement_Snapshot.text
         webElement_Snapshot.click()
-        time.sleep(2)
+        time.sleep(5)
 
 
         #print driver.title
 
 ####    #Show / Hide Course menu
-        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//button[@aria-hidden='true']"))
+        #webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//button[@aria-hidden='true']"))
+        #webElement = WebDriverWait(driver, 10).unitil(lambda driver: driver.find_element_by_xpath("//button[@aria-label='Hide courses menu']"))
+        webElement = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//button[@id='courseMenuToggle']"))
         webElement.click()
         time.sleep(5)
         webElement.click()
@@ -107,7 +109,8 @@ class TestCase2(unittest.TestCase):
         time.sleep(5)
 
 
-        webElement_Comments = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//i[@class='icon-comments']"))
+        #webElement_Comments = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//i[@class='icon-comments']"))
+        webElement_Comments = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//span[@class='icon-comments style--icon--1JSx6']"))
         print webElement_Comments.text
         webElement_Comments.click()
 
@@ -127,9 +130,10 @@ class TestCase2(unittest.TestCase):
         time.sleep(5)
 
 
-        webElement_h1 = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//h1[contains(.,'[CMP Production] Template Course')]"))
-        print webElement_h1.text
-        assert webElement_h1.text == '[CMP Production] Template Course'
+        #webElement_h1 = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//h1[contains(.,'[CMP Production] Template Course')]"))
+        webElement_h2 = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//h2[contains(.,'[CMP Production] Template Course')]"))
+        print webElement_h2.text
+        assert webElement_h2.text == '[CMP Production] Template Course'
         webElement_div = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath("//div[contains(@class,'discrete')]"))
         print webElement_div.text
         assert webElement_div.text == 'EAP 102 / Section #102 / 2 students'
