@@ -10,7 +10,7 @@ import time
 ##Find and validate all elements on the Login page.
 
 #class WaitForElement(unittest.TestCase):
-class TestCase2(unittest.TestCase):
+class TestCase3(unittest.TestCase):
       #3method test, setup and teardown are refered to as fixtures
     def setUp(self):
         global driver
@@ -39,9 +39,13 @@ class TestCase2(unittest.TestCase):
         print driver.title
 
 
+        #iframe Loading...
+        #Loading = WebDriverWait, 10).until(lambda driver: driver.find_element_by_xpath("//div[@class='main-content loading']"))
+
         driver.switch_to_frame(1)
         #driver.switch_to_frame("iframe")
         print driver.title
+        time.sleep(5)
 
 
         #Student Monitoring iframe menu link
